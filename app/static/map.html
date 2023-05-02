@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<head>
+    
+
+</head>
+
+<body>
+    <p> Who goes there </p>
+    <iframe height="400" width ="500" src="https://api.maptiler.com/maps/streets/?key=dAqEbdIAjzS0HOvTSmTF#14.0/40.70850/-74.00603"></iframe>
+
+    <script>
+        //first add the source with the "square" id to the map
+        map.addSource('square', {
+        type: 'geojson',
+        data: {
+            "type": "FeatureCollection",
+            "features": [
+            {
+                "type": "Feature",
+                "properties": {},
+                "geometry": {
+                "coordinates": [[[-2.2240348228768596, 45.20404531546535], [-2.2240348228768596, 38.55848603574671], [7.2012758848702845, 38.55848603574671], [7.2012758848702845, 45.20404531546535], [-2.2240348228768596, 45.20404531546535]]],
+                "type": "Polygon"
+                }
+            }
+            ]
+        }
+        });
+
+        //then add the layer to the map. Display the "square" source data
+        map.addLayer({
+        "id": "square-region",
+        "source": "square",
+        "type": "fill",
+        "paint": {
+            "fill-color": "#00ffff"
+        }
+        });
+
+    </script>
+</body>
