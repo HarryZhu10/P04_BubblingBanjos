@@ -10,7 +10,7 @@ Shinji : Database / API (read data into sqlite)
 # Program Description:
 App that displays a map of NYC populated with data on crime in the city over layed with additional info on the city like socioeconomic demographics.
 
-#Tools/APIs:
+# Tools/APIs:
 https://openmaptiles.org/docs/  
 Email for API: bubbanjos@gmail.com    
 Password: uHkQKZA4QJs8Af6   
