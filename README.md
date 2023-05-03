@@ -24,7 +24,7 @@ Similar to this: https://cuspmap.org/NYC/
 NYC OPEN DATA: https://opendata.cityofnewyork.us/  
 https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95 (The Motor Vehicle Collisions crash table contains details on the crash event. Each row represents a crash event. The Motor Vehicle Collisions data tables contain information from all police reported motor vehicle collisions in NYC)  
 [details on the specific vehicles involved in collisions  ](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Vehicles/bm4k-52h4)  
-NYC hate crimes (Dataset containing confirmed hate crime incidents in NYC, doesn’t have latitude, longitude)  
+[NYC hate crimes](https://data.cityofnewyork.us/Public-Safety/NYPD-Hate-Crimes/bqiq-cu78) (Dataset containing confirmed hate crime incidents in NYC, doesn’t have latitude, longitude)  
 NYC shooting incidents (List of every shooting incident that occurred in NYC going back to 2006 through the end of the previous calendar year)  
 NYC arrest data (List of every arrest in NYC going back to 2006 through the end of the previous calendar year)  
 Demographics by zip code  
