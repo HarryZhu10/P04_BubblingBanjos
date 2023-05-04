@@ -18,7 +18,7 @@ App that displays a map of NYC populated with data on crime in the city over lay
 Maptiler Account Details:  
 Email for API: bubbanjos@gmail.com  
 Password: uHkQKZA4QJs8Af6 (<-- highlight to see)  
-This API will be used to create a map for our project that we will layer information on in many forms and with many different filters that the user will be able to use. 
+This API will be used to create a map for our project that we will layer information on in many forms and with many different filters that the user will be able to use.  
 Goal: https://cuspmap.org/NYC/  
 https://data.cityofnewyork.us/login  
 NYC Open Data Account Details:
