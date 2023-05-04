@@ -1,4 +1,4 @@
-import sqlite3, csv
+import sqlite3, csv, pandas
 
 DB_FILE = "data.db"
 
@@ -12,6 +12,8 @@ def db_connect():
 def db_close():
     db.commit()
     db.close()
+
+db_fill_tables()
 
 def db_init_tables():
     c = db_connect(DB_FILE)
