@@ -27,4 +27,4 @@ ivanY -- 2022-05-03 21:34
 * login and registration was remove as it is not worth the resources and is not needed for our app
 --------------------------------------------------------------
 harryZ -- 2022-05-03 21:42
-*updated the readme.md
+*updated the readme.md and design doc 
