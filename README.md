@@ -8,7 +8,8 @@ Ivan : Middleware (Python and Flask)
 Shinji : Database / API (read data into sqlite)  
 
 # Program Description:
-App that displays a map of NYC populated with data on crime in the city over layed with additional info on the city like socioeconomic demographics.  
+App that displays a map of NYC populated with data on crime in the city over layed with additional info on the city like socioeconomic demographics. This visualization of information can help gauge the relative safety of certain areas in NYC based on various indexes.  
+  
 
 # Tools/APIs:
 https://openmaptiles.org/docs/  
