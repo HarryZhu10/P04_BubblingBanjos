@@ -21,7 +21,7 @@ Similar to this: https://cuspmap.org/NYC/
 # Launch Codes
 
 # Data  
-[NYC OPEN DATA]https://opendata.cityofnewyork.us/  
+[NYC OPEN DATA](https://opendata.cityofnewyork.us/)  
 [NYC motor vehicle collisions](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95) (The Motor Vehicle Collisions crash table contains details on the crash event. Each row represents a crash event. The Motor Vehicle Collisions data tables contain information from all police reported motor vehicle collisions in NYC)  
 [details on the specific vehicles involved in collisions  ](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Vehicles/bm4k-52h4)  
 [NYC hate crimes](https://data.cityofnewyork.us/Public-Safety/NYPD-Hate-Crimes/bqiq-cu78) (Dataset containing confirmed hate crime incidents in NYC, doesn’t have latitude, longitude)  
