@@ -28,3 +28,10 @@ ivanY -- 2022-05-03 21:34
 --------------------------------------------------------------
 harryZ -- 2022-05-03 21:42
 *updated the readme.md and design doc 
+--------------------------------------------------------------
+Feedback:
+- Login and registration feature was not necessary
+
+Design Doc Changes:
+- fixed the site map
+- removed login and registration feature
