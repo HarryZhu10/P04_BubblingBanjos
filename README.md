@@ -28,7 +28,7 @@ NYC OPEN DATA: https://opendata.cityofnewyork.us/
 [NYC shooting incidents](https://data.cityofnewyork.us/Public-Safety/NYPD-Shooting-Incident-Data-Historic-/833y-fsy8) (List of every shooting incident that occurred in NYC going back to 2006 through the end of the previous calendar year)  
 [NYC arrest data](https://data.cityofnewyork.us/Public-Safety/NYPD-Arrests-Data-Historic-/8h9b-rp9u) (List of every arrest in NYC going back to 2006 through the end of the previous calendar year)  
 Demographics by zip code  
-[Official datasets from the City of New York (you can change the organization to find datasets from other official sources) https://catalog.data.gov/dataset/?q=&sort=views_recent+desc&organization=city-of-new-york&ext_location=&ext_bbox=&ext_prev_extent=-164.53125%2C-80.17871349622823%2C164.53125%2C80.17871349622823 ](https://data.cityofnewyork.us/Social-Services/Demographics-by-Zip-Code/hebw-6hze)
+[Demographics by zip code](https://data.cityofnewyork.us/Social-Services/Demographics-by-Zip-Code/hebw-6hze)
 
 
 
