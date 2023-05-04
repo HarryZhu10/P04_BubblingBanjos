@@ -14,11 +14,11 @@ App that displays a map of NYC populated with data on crime in the city over lay
 # Tools/APIs:
 [Maptiler Docs](https://openmaptiles.org/docs/)  
 [Maptiler Raster Image](https://docs.maptiler.com/leaflet/raster-layer/)  
-[MapTiler Vector Tiles in Leaflet JS](https://docs.maptiler.com/leaflet/vector-tiles-in-leaflet-js/?key=dAqEbdIAjzS0HOvTSmTF&mapId=basic-v2&_gl=1*62ezf4*_ga*MzIwMDk1NDUwLjE2ODI3MDQ4NDc.*_ga_K4SXYBF4HT*MTY4MzA1MDEwNC4xLjEuMTY4MzA1MTAyNS41Ni4wLjA.*_ga_7HWGQGGMCE*MTY4MzA1MDEwNC4zLjEuMTY4MzA1MTAyNi4wLjAuMA..&_ga=2.174521698.1318779432.1682962870-320095450.1682704847)
+[MapTiler Vector Tiles in Leaflet JS](https://docs.maptiler.com/leaflet/vector-tiles-in-leaflet-js/?key=dAqEbdIAjzS0HOvTSmTF&mapId=basic-v2&_gl=1*62ezf4*_ga*MzIwMDk1NDUwLjE2ODI3MDQ4NDc.*_ga_K4SXYBF4HT*MTY4MzA1MDEwNC4xLjEuMTY4MzA1MTAyNS41Ni4wLjA.*_ga_7HWGQGGMCE*MTY4MzA1MDEwNC4zLjEuMTY4MzA1MTAyNi4wLjAuMA..&_ga=2.174521698.1318779432.1682962870-320095450.1682704847)  
 Maptiler Account Details:  
 Email for API: bubbanjos@gmail.com  
 Password: uHkQKZA4QJs8Af6 (<-- highlight to see)  
-This API will be used to create a map for our project that we will layer information on in many forms and with many different filters that the user will be able to use.  
+This API will be used to create a map for our project that we will layer information on in many forms and with many different filters that the user will be   able to use.  
 Goal: https://cuspmap.org/NYC/  
 https://data.cityofnewyork.us/login  
 NYC Open Data Account Details:
