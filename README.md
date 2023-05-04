@@ -21,14 +21,13 @@ Similar to this: https://cuspmap.org/NYC/
 # Launch Codes
 
 # Data  
-NYC OPEN DATA: https://opendata.cityofnewyork.us/  
-https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95 (The Motor Vehicle Collisions crash table contains details on the crash event. Each row represents a crash event. The Motor Vehicle Collisions data tables contain information from all police reported motor vehicle collisions in NYC)  
+[NYC OPEN DATA](https://opendata.cityofnewyork.us/)  
+[NYC motor vehicle collisions](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95) (The Motor Vehicle Collisions crash table contains details on the crash event. Each row represents a crash event. The Motor Vehicle Collisions data tables contain information from all police reported motor vehicle collisions in NYC)  
 [details on the specific vehicles involved in collisions  ](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Vehicles/bm4k-52h4)  
 [NYC hate crimes](https://data.cityofnewyork.us/Public-Safety/NYPD-Hate-Crimes/bqiq-cu78) (Dataset containing confirmed hate crime incidents in NYC, doesn’t have latitude, longitude)  
 [NYC shooting incidents](https://data.cityofnewyork.us/Public-Safety/NYPD-Shooting-Incident-Data-Historic-/833y-fsy8) (List of every shooting incident that occurred in NYC going back to 2006 through the end of the previous calendar year)  
-[NYC arrest data](https://data.cityofnewyork.us/Public-Safety/NYPD-Arrests-Data-Historic-/8h9b-rp9u) (List of every arrest in NYC going back to 2006 through the end of the previous calendar year)  
-Demographics by zip code  
-Official datasets from the City of New York (you can change the organization to find datasets from other official sources) https://catalog.data.gov/dataset/?q=&sort=views_recent+desc&organization=city-of-new-york&ext_location=&ext_bbox=&ext_prev_extent=-164.53125%2C-80.17871349622823%2C164.53125%2C80.17871349622823 
+[NYC arrest data](https://data.cityofnewyork.us/Public-Safety/NYPD-Arrests-Data-Historic-/8h9b-rp9u) (List of every arrest in NYC going back to 2006 through the end of the previous calendar year)   
+[Demographics by zip code](https://data.cityofnewyork.us/Social-Services/Demographics-by-Zip-Code/hebw-6hze)
 
 
 
