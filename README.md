@@ -26,8 +26,7 @@ NYC OPEN DATA: https://opendata.cityofnewyork.us/
 [details on the specific vehicles involved in collisions  ](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Vehicles/bm4k-52h4)  
 [NYC hate crimes](https://data.cityofnewyork.us/Public-Safety/NYPD-Hate-Crimes/bqiq-cu78) (Dataset containing confirmed hate crime incidents in NYC, doesn’t have latitude, longitude)  
 [NYC shooting incidents](https://data.cityofnewyork.us/Public-Safety/NYPD-Shooting-Incident-Data-Historic-/833y-fsy8) (List of every shooting incident that occurred in NYC going back to 2006 through the end of the previous calendar year)  
-[NYC arrest data](https://data.cityofnewyork.us/Public-Safety/NYPD-Arrests-Data-Historic-/8h9b-rp9u) (List of every arrest in NYC going back to 2006 through the end of the previous calendar year)  
-Demographics by zip code  
+[NYC arrest data](https://data.cityofnewyork.us/Public-Safety/NYPD-Arrests-Data-Historic-/8h9b-rp9u) (List of every arrest in NYC going back to 2006 through the end of the previous calendar year)   
 [Demographics by zip code](https://data.cityofnewyork.us/Social-Services/Demographics-by-Zip-Code/hebw-6hze)
 
 
