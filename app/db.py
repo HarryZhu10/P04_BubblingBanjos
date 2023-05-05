@@ -1,8 +1,13 @@
-import sqlite3, csv, pandas
+import sqlite3, csv, pandas, sqlalchemy
 
 DB_FILE = "data.db"
 
 db = None
+
+# cdf = pd.read_csv()
+# sdf = pd.read_csv()
+# adf = pd.read_csv()
+# ddf = pd.read_csv()
 
 def db_connect():
     global db
