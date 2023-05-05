@@ -4,11 +4,95 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    
+    <link   rel="stylesheet"
+                type="text/css"
+                href="../static/home.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
     <a class="nav-link" href="/map">Map</a>
-    
+    <div class ="body">
+        <nav id="navbar-example2" class="navbar navbar-dark fixed-top navbar-custom">
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+            <a class="navbar-brand" href="#">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+                TypeScript
+            </a>
+
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                    <a class="nav-link" href="#scrollspyHeading1">DESCRIPTION</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#scrollspyHeading2">HOW TO USE</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#scrollspyHeading3">ABOUT DATA</a>
+                    </li>
+                </ul>
+        </nav>
+
+            <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-light p-3 rounded-2" tabindex="0">
+
+                <div class="middle">
+                    
+                    <div id="scrollspyHeading1" class="section">
+                        <!-- Card -->
+                        <div class="row g-0 bg-light position-relative">
+                            <div class="col-md-6 mb-md-0 p-md-4">
+                              <img src="https://prisma-blog-ebon.vercel.app/blog/posts/typescript-pocketguide.png" class="w-100" alt="Logo">
+                            </div>
+                            <div class="col-md-6 p-4 ps-md-0">
+                              <h5 class="mt-0">TypeScript</h5>
+                              <p>TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.</p>
+                              <a href="https://www.typescriptlang.org/" class="stretched-link">Learn More</a>
+                            </div>
+                        </div>
+
+                        <h2 class="heading">
+                            DESCRIPTION
+                        </h2>
+                        <p>
+                                TypeScript is a language that adds additional features to Javascript, improving the quality 
+                            and legibility of your code. As the name suggests, you are meant to heavily use types throughout 
+                            your code which helps you catch minor errors. Specifically it is a superset of JavaScript, meaning 
+                            that any legal javascript code is also legal typescript code. However, this doesn’t work the other 
+                            way around since TypeScript is a typed superset and adds additional rules to the JavaScript syntax. 
+                            TypeScript is both dynamically and statically typed. One of the most prominent aspects of TypeScript is 
+                            the ability to do static type checking. Static type checking basically analyzes the code to hint at 
+                            potential errors without having to run the program. With these features, TypeScript can be viewed as 
+                            more of a development tool than another coding language. If it spots an error, it will send a message 
+                            on the terminal similar to how the javac compiler does.
+                        </p>
+                        <img src="static/typescript.png"></img>
+                    </div>
+                    <div id="scrollspyHeading2" class="section">
+                        <h2 class="heading">HOW TO USE</h2>
+                        <p>
+                            Prerequisites: node.js and npm <br> <br>
+                            Global download: 
+                                <pre><code>npm install -g typescript</code></pre> <br>
+                            Project download:
+                                <pre><code>npm install typescript --save-dev</code></pre>
+                        </p>
+                    </div>  
+                    <div id="scrollspyHeading3" class="section">
+                        <h2 class="heading">ABOUT DATA</h2>
+                        <p>
+                            To compile a TypeScript file (ending in .ts), run [include npx key word if you downloaded by project]: <br>
+                            <pre><code>(npx) tsc filename.ts</code></pre> <br>
+                            TS also comes with many flags and configurations in order to make the programming experience better and more individually tailored.
+                            One feature of default TS is that even though the code may have errors, it will still compile into a JS file.
+                            To stop this, you can use the --noEmitOnError flag after the compile command.
+                            To see more configs, run: <br>
+                            <pre><code>(npx) tsc --init</code></pre> <br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
       <script src="static/js/home.js"></script>    
 </body>
 </html>
