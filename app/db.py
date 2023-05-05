@@ -4,10 +4,10 @@ DB_FILE = "data.db"
 
 db = None
 
-# cdf = pd.read_csv()
-# sdf = pd.read_csv()
-# adf = pd.read_csv()
-# ddf = pd.read_csv()
+# cdf = pd.read_csv("url for collisions", usecols=[])
+# sdf = pd.read_csv("url for shootings", usecols=[])
+# adf = pd.read_csv("url for arrests", usecols=[])
+# ddf = pd.read_csv("url for demographics", usecols=[])
 
 def db_connect():
     global db
