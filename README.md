@@ -1,5 +1,4 @@
 # P04: Map by BubblingBanjos
-# Description
 
 # Roster:
 Harry : Middleware (Python and Flask)  
