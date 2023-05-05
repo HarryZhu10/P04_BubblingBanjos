@@ -35,4 +35,8 @@ Feedback:
 Design Doc Changes:
 - fixed the site map
 - removed login and registration feature
+--------------------------------------------------------------
+ivanY -- 2022-05-05
+* merged working flask app to serve home page and map page
+* have working javascript files linked to home.html and map.html
 ==============================================================
