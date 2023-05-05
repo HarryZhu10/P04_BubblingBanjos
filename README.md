@@ -44,7 +44,7 @@ git clone git@github.com:HarryZhu231227919/P04_BubblingBanjos.git
 ``` 
 cd P04_BubblingBanjos/
 ```
-`3) install requirements`
+`3) Install requirements`
 ```
 pip install -r requirements.txt
 ```
