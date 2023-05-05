@@ -36,12 +36,11 @@ Design Doc Changes:
 - fixed the site map
 - removed login and registration feature
 --------------------------------------------------------------
+harryZ -- 2023-05-05 13:32
+* added launch codes to the readme.md
+--------------------------------------------------------------
 ivanY -- 2022-05-05
 * merged working flask app to serve home page and map page
 * have working javascript files linked to home.html and map.html
 ==============================================================
---------------------------------------------------------------
-harryZ -- 2023-05-05 13:32
-* added launch codes to the readme.md
---------------------------------------------------------------
 
