@@ -36,11 +36,21 @@ Design Doc Changes:
 - fixed the site map
 - removed login and registration feature
 --------------------------------------------------------------
+shinjiK -- 2023-05-04 14:00
+* started working on db python file
+* wrote some of the basic methods that will be used when getting the csv information
+--------------------------------------------------------------
 harryZ -- 2023-05-05 13:32
 * added launch codes to the readme.md
 --------------------------------------------------------------
 ivanY -- 2022-05-05
 * merged working flask app to serve home page and map page
 * have working javascript files linked to home.html and map.html
+--------------------------------------------------------------
+shinjiK -- 2023-05-05 13:50
+* Continued to work on how to get the information
+* Began working on a separate repository to host the csv files so that
+I can copy their url to use with pandas.
+--------------------------------------------------------------
 ==============================================================
 
