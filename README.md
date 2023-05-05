@@ -52,7 +52,10 @@ pip install -r requirements.txt
 python3 app/__init__.py
 ```
 
-`5) Open the following link in any web browser`
+`5) Click on the following link:`
+```
+"http://127.0.0.1:5000"
+```
 
 `6) Have fun!`
 
