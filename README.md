@@ -56,7 +56,7 @@ python3 app/__init__.py
 
 `5) Open the following link in any web browser`
 ```
-`6) Have fun!
+`6) Have fun!  
 ```
 
 
