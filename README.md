@@ -26,6 +26,40 @@ This account will allow us to create an app token to use the APIs provided by by
 
 
 # Launch Codes
+## How to Clone, Install, and Run
+
+`0) Create and activate an environment`
+```
+python3 -m venv <<name>>
+cd <<name>>
+. bin/activate
+```
+`1) Clone the project `
+```
+git clone git@github.com:HarryZhu231227919/P04_BubblingBanjos.git
+```
+
+`2) Navigate to root directory`
+
+``` 
+cd P04_BubblingBanjos/
+```
+`3) install requirements`
+```
+pip install -r requirements.txt
+```
+`4) Run the program`
+
+``` 
+python3 app/__init__.py
+```
+
+`5) Open the following link in any web browser`
+```
+`6) Have fun!
+```
+
+
 
 # Data  
 [NYC OPEN DATA](https://opendata.cityofnewyork.us/)  
