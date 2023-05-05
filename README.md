@@ -24,8 +24,7 @@ Email for NYC Open Data Account: bubbanjos@gmail.com
 This account will allow us to create an app token to use the APIs provided by by NYC Open Data  
 
 
-# Launch Codes
-## How to Clone, Install, and Run
+# Launch Codes (Clone, Install, Run)
 
 `0) Create and activate an environment`
 ```
