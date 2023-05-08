@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+        crossorigin="anonymous"/>
+
+
+         <!-- Make sure you put this AFTER Leaflet's CSS -->
+        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+        crossorigin="anonymous"></script>
+        
+        <style>
+            html, body {
+                height: 100%; 
+            }
+
+            #map { height: 100%; }
+        </style>
+
+    </head>
+
+    <body>
+        <p> Who goes there </p>
+
+        <div id="map"></div>
+
+        <!-- {% block javascript %} -->
+
+        <script src="../static/js/maps.js">
+
+            console.log({{ data }})
+
+            get_variable({{data | tojson}})
+
+        </script>
+
+        <!-- {% endblock %} -->
+        
+
+        
+
+        </script>
+    </body>
+
+</html>
