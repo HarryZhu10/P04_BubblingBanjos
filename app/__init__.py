@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import os
+import json
 
 app = Flask(__name__)
 
@@ -11,8 +12,8 @@ app.secret_key = os.urandom(12)
 
 @app.route("/", methods=['GET', 'POST'])
 def map():
-    if request.method == 'GET':
-        return render_template('map.html')
+    # if request.method == 'GET':
+    #     return render_template('map.html')
 
 
     statesData = {"type":"FeatureCollection","features":[
@@ -70,12 +71,15 @@ def map():
     {"type":"Feature","id":"72","properties":{"name":"Puerto Rico","density":1082 },"geometry":{"type":"Polygon","coordinates":[[[-66.448338,17.984326],[-66.771478,18.006234],[-66.924832,17.929556],[-66.985078,17.973372],[-67.209633,17.956941],[-67.154863,18.19245],[-67.269879,18.362235],[-67.094617,18.515589],[-66.957694,18.488204],[-66.409999,18.488204],[-65.840398,18.433435],[-65.632274,18.367712],[-65.626797,18.203403],[-65.730859,18.186973],[-65.834921,18.017187],[-66.234737,17.929556],[-66.448338,17.984326]]]}}
     ]}
 
+    print("ahahahha")
     print (type(statesData))
     statesData_json = json.dumps(statesData)
 
-    print(type(statesData))
+    print(type(statesData_json))
+    # print(statesData_json)
     
-    return render_template('map.hmtl', data=statesData_json)
+    return render_template('map.html', data=statesData_json)
+    # return render_template('map.html')
 
 
 if __name__ == "__main__": #false if this file imported as module

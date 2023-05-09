@@ -27,17 +27,15 @@
 
         <div id="map"></div>
 
-        <!-- {% block javascript %} -->
+        <p hidden id="data">
+            {{data}}
+        </p>
+
 
         <script src="../static/js/maps.js">
 
-            console.log({{ data }})
-
-            get_variable({{data | tojson}})
-
         </script>
 
-        <!-- {% endblock %} -->
         
 
         

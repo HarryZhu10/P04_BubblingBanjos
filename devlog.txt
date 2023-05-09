@@ -29,6 +29,19 @@ ivanY -- 2022-05-03 21:34
 harryZ -- 2022-05-03 21:42
 *updated the readme.md and design doc 
 --------------------------------------------------------------
+andrewP -- 2022-05-08 14:00
+*Started figuring out how to conduit data from the backend into the frontend for rendering/demonstration
+ - difficulty to get the data types to match up and be correct, learn how to convert python dictionaries to
+  JSON and then parse that in javascript
+--------------------------------------------------------------
+andrewP -- 2022-05-09 14:00
+*Found a way to get data from python into frontend, backend to python is something we have done many times so
+that is not a place of concern
+ - difficulty because different data types, but in the end fairly simple because python dictionary is just javascript object notation (JSON)
+   and there are many tools for conversion
+ - used a hidden p tag in the html to get data from python, to jinja to html, and then read that data now in the DOM using the stuff we know like
+   "getElementById" and other methods like that
+--------------------------------------------------------------
 Feedback:
 - Login and registration feature was not necessary
 

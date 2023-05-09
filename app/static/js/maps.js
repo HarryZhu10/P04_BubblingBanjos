@@ -1,11 +1,13 @@
-var statesData;
+var data = document.getElementById("data");
 
-var get_variable = function( data ) {
-    statesData = data;
-}
+json_data = JSON.parse(data.innerHTML);
+var statesData = json_data;
 
+console.log(data.innerHTML);
+console.log(statesData);
+console.log('hello!');
 
-console.log(statesData)
+// console.log(statesData)
 
 var map = L.map('map').setView([40.70850, -74.00603], 13); //40.70850/-74.00603
 
