@@ -56,4 +56,8 @@ I can copy their url to use with pandas.
 harryZ -- 2023-05-08 13:41
 * filled in the requirements.txt
 --------------------------------------------------------------
-
+shinjiK -- 2023-05-09 6:57
+* Change plan for hosting csv files on github with git lfs and moved
+to google drive.
+* Got some of the csv reading stuff done.
+--------------------------------------------------------------
