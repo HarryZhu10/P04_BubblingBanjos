@@ -5,10 +5,19 @@ DB_FILE = "data.db"
 
 db = None
 
-cdf = pd.read_csv("https://media.githubusercontent.com/media/Skusakabe/ForStoringContentToGetWithUrl/main/Motor_Vehicle_Collisions_-_Crashes.csv", usecols=["CRASH DATE", "CRASH TIME", "ZIP CODE", "LATITUDE", "LONGITUDE", "NUMBER OF PERSONS INJURED", "NUMBER OF PERSONS KILLED"])
-# sdf = pd.read_csv("https://media.githubusercontent.com/media/Skusakabe/ForStoringContentToGetWithUrl/main/NYPD_Shooting_Incident_Data__Historic_.csv", usecols=[])
-# adf = pd.read_csv("https://media.githubusercontent.com/media/Skusakabe/ForStoringContentToGetWithUrl/main/NYPD_Arrests_Data__Historic_.csv", usecols=[])
-# ddf = pd.read_csv("https://media.githubusercontent.com/media/Skusakabe/ForStoringContentToGetWithUrl/main/Demographics_by_Zip_Code.csv", usecols=[])
+curl = 'https://drive.google.com/file/d/1DXS_eqGG3AbR1IrdOcWiXc_qPTEbGFHf/view?usp=sharing'
+surl = 'https://drive.google.com/file/d/1EJRFulkdL0sKhH2py9YVXH6gfdvNN_6Q/view?usp=sharing'
+aurl = 'https://drive.google.com/file/d/1HtKO8nK2daRjJm1U50pyUZt_SF0cFmQj/view?usp=sharing'
+durl = 'https://drive.google.com/file/d/1sGjh289FyxkBNQ-wdruaxxN0k1WTp2xg/view?usp=sharing'
+curl = 'https://drive.google.com/uc?id=' + curl.split('/')[-2]
+surl = 'https://drive.google.com/uc?id=' + surl.split('/')[-2]
+aurl = 'https://drive.google.com/uc?id=' + aurl.split('/')[-2]
+durl = 'https://drive.google.com/uc?id=' + durl.split('/')[-2]
+
+# cdf = pd.read_csv(curl, usecols=["CRASH DATE", "CRASH TIME", "ZIP CODE", "LATITUDE", "LONGITUDE", "NUMBER OF PERSONS INJURED", "NUMBER OF PERSONS KILLED"])
+# sdf = pd.read_csv(surl, usecols=[])
+# adf = pd.read_csv(aurl, usecols=[])
+ddf = pd.read_csv(durl, usecols=['Zip Code', 'Female Count', 'Female Percentage', 'Male Count', 'Male Percentage'])
 
 # def db_connect():
 #     global db
