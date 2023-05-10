@@ -23,6 +23,11 @@ ddf = pd.read_csv(durl, usecols=['Zip Code', 'Female Count', 'Female Percentage'
                                  , 'American Indian or Alaskan Native Count', 'American Indian or Alaskan Native Percentage', 'Asian Count', 'Asian Percentage',
                                  'Black or African American Count', 'Black or African American Percentage', 'Multi-race Count', 'Multi-race Percentage', 'White or Caucasian Count', 'White or Caucasian Percentage', 'Middle Eastern and North African Count', 'Middle Eastern and North African Percentage'])
 
+cdf = cdf.dropna()
+sdf = sdf.dropna()
+adf = adf.dropna()
+ddf = ddf.dropna()
+
 # def db_connect():
 #     global db
 #     db = sqlite3.connect(DB_FILE)
