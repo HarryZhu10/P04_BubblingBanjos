@@ -68,3 +68,7 @@ harryZ -- 2023-05-09 13:28
 --------------------------------------------------------------
 ivanY -- 2023-05-09 14:00
 * got basic layout of home page with bootstrap styling
+--------------------------------------------------------------
+ivanY -- 2023-05-11 00:00
+* merged changes from rendering branch to main
+* finished footer and navbar for home page
