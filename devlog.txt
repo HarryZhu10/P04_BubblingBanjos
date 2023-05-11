@@ -6,8 +6,7 @@ Shinji Kusakabe
 pd 8
 
 ---------------------
-Making an web app that allow people to create stories, edit them, and then view them.
-
+An interactive map that allow people to view how safe an area in NYC is based on zip codes. 
 
  ______   ______   __   __   __       ______   _______
 /_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\
@@ -73,7 +72,7 @@ ivanY -- 2023-05-11 00:00
 * merged changes from rendering branch to main
 * finished footer and navbar for home page
 --------------------------------------------------------------
-harryZ -- 2023-05-08 13:41
+harryZ -- 2023-05-11 13:46
 * Fixed the name in home.html
 * Added the descriptions for home.html
 --------------------------------------------------------------
