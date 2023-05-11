@@ -1,32 +1,50 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Map</title>
-</head>
-<body>
-    <a class="nav-link" href="/">Home</a>
-    <style>
-        #playground { border: 1px solid black }
-      </style>
-    
-      <h1>expansion + contraction</h1>
-    
-      <div>
-        <button id="buttonCircle">
-          I'm an Animaniac!
-        </button>
-    
-        <button id="buttonStop">
-          STOP
-        </button>
-      </div>
-    
-      <canvas width="500" height="500" id="playground">
-      </canvas>
-    
-      <script src="static/js/map.js"></script>
-</li>  
-</body>
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+        crossorigin="anonymous"/>
+
+
+         <!-- Make sure you put this AFTER Leaflet's CSS -->
+        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+        crossorigin="anonymous"></script>
+        
+        <style>
+            html, body {
+                height: 100%; 
+            }
+
+            #map { height: 100%; }
+        </style>
+
+    </head>
+
+    <body>
+        <p> Who goes there </p>
+
+        <div id="map"></div>
+
+        <p hidden id="data">
+            {{data}}
+        </p>
+
+        <p hidden id="points">
+            {{point_data}}
+        </p>
+
+
+        <script src="../static/js/maps.js">
+
+        </script>
+
+        
+
+        
+
+        </script>
+    </body>
+
 </html>
