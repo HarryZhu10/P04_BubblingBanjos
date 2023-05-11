@@ -72,3 +72,8 @@ ivanY -- 2023-05-09 14:00
 ivanY -- 2023-05-11 00:00
 * merged changes from rendering branch to main
 * finished footer and navbar for home page
+--------------------------------------------------------------
+harryZ -- 2023-05-08 13:41
+* Fixed the name in home.html
+* Added the descriptions for home.html
+--------------------------------------------------------------
