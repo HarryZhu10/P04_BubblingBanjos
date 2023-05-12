@@ -6,8 +6,7 @@ Shinji Kusakabe
 pd 8
 
 ---------------------
-Making an web app that allow people to create stories, edit them, and then view them.
-
+An interactive map that allow people to view how safe an area in NYC is based on zip codes. 
 
  ______   ______   __   __   __       ______   _______
 /_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\
@@ -15,18 +14,18 @@ Making an web app that allow people to create stories, edit them, and then view 
  \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\
   \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/
    \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \
-    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/
+    \____/_/ \_____\/ \___/_/   \_____\/ \_____\/ \_____\/
 ==============================================================
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 
 fristL -- TIMESTAMP
 --------------------------------------------------------------
-ivanY -- 2022-05-03 21:34
+ivanY -- 2023-05-03 21:34
 * made changes to design doc based on revisions
 * login and registration was remove as it is not worth the resources and is not needed for our app
 --------------------------------------------------------------
-harryZ -- 2022-05-03 21:42
+harryZ -- 2023-05-03 21:42
 *updated the readme.md and design doc 
 --------------------------------------------------------------
 andrewP -- 2022-05-08 14:00
@@ -48,4 +47,45 @@ Feedback:
 Design Doc Changes:
 - fixed the site map
 - removed login and registration feature
-==============================================================
+--------------------------------------------------------------
+shinjiK -- 2023-05-04 14:00
+* started working on db python file
+* wrote some of the basic methods that will be used when getting the csv information
+--------------------------------------------------------------
+harryZ -- 2023-05-05 13:32
+* added launch codes to the readme.md
+--------------------------------------------------------------
+ivanY -- 2022-05-05
+* merged working flask app to serve home page and map page
+* have working javascript files linked to home.html and map.html
+--------------------------------------------------------------
+shinjiK -- 2023-05-05 13:50
+* Continued to work on how to get the information
+* Began working on a separate repository to host the csv files so that
+I can copy their url to use with pandas.
+--------------------------------------------------------------
+harryZ -- 2023-05-08 13:41
+* filled in the requirements.txt
+--------------------------------------------------------------
+IvanY -- 2023-05-08 14:00
+* started working on home page of app
+--------------------------------------------------------------
+shinjiK -- 2023-05-09 6:57
+* Change plan for hosting csv files on github with git lfs and moved
+to google drive.
+* Got some of the csv reading stuff done.
+--------------------------------------------------------------
+harryZ -- 2023-05-09 13:28
+* fixed missing flag.jpg issue
+--------------------------------------------------------------
+ivanY -- 2023-05-09 14:00
+* got basic layout of home page with bootstrap styling
+--------------------------------------------------------------
+ivanY -- 2023-05-11 00:00
+* merged changes from rendering branch to main
+* finished footer and navbar for home page
+--------------------------------------------------------------
+harryZ -- 2023-05-11 13:46
+* Fixed the name in home.html
+* Added the descriptions for home.html
+--------------------------------------------------------------

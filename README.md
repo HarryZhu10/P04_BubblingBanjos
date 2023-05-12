@@ -1,5 +1,4 @@
 # P04: Map by BubblingBanjos
-# Description
 
 # Roster:
 Harry : Middleware (Python and Flask)  
@@ -25,7 +24,43 @@ Email for NYC Open Data Account: bubbanjos@gmail.com
 This account will allow us to create an app token to use the APIs provided by by NYC Open Data  
 
 
-# Launch Codes
+# Launch Codes (Clone, Install, Run)
+
+`0) Create and activate an environment`
+```
+python3 -m venv <<name>>
+cd <<name>>
+. bin/activate
+```
+`1) Clone the project `
+```
+git clone git@github.com:HarryZhu231227919/P04_BubblingBanjos.git
+```
+
+`2) Navigate to root directory`
+
+``` 
+cd P04_BubblingBanjos/
+```
+`3) Install requirements`
+```
+pip install -r requirements.txt
+```
+`4) Run the program`
+
+``` 
+python3 app/__init__.py
+```
+
+`5) Click on the following link:`
+```
+http://127.0.0.1:5000
+```
+
+`6) Have fun!`
+
+
+
 
 # Data  
 [NYC OPEN DATA](https://opendata.cityofnewyork.us/)  
