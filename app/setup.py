@@ -1,4 +1,4 @@
-import sqlite3, csv, sqlalchemy, gdown #gdown for downloading big google drive files
+import sqlite3, csv, sqlalchemy, gdown, shapefile #gdown for downloading big google drive files
 import pandas as pd
 
 from sqlalchemy import create_engine
@@ -54,5 +54,9 @@ cdf.to_sql('collision_info', db, if_exists='fail')
 sdf.to_sql('shooting_info', db, if_exists='fail')
 adf.to_sql('arrest_info', db, if_exists='fail')
 ddf.to_sql('demographic_info', db, if_exists='fail')
+
+# Do a lot of shapefile stuff in order to convert the zipcodes into geographic coordinate data that can be made into polygons.
+# Host Zip_Code.shp file on google drive and download it here
+# sf = shapefile.Reader('ZIP_CODE_040114.shp')
 
 db.commit()
