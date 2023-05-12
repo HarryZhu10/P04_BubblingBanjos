@@ -92,3 +92,8 @@ harryZ -- 2023-05-11 13:46
 ivanY -- 2023-05-11 23:29
 * Combined home page with map page 
 * Added nav bar to maps page
+--------------------------------------------------------------
+harryZ -- 2023-05-12 13:50
+* Fixed the name in map.html
+* Filled in the "How to" section for home.html
+--------------------------------------------------------------
