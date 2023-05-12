@@ -1,0 +1,35 @@
+.body {
+    margin: auto;
+}
+
+.content {
+    text-align: center;
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+.section {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.nav-item{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.navbar {
+    height: 80px;
+}
+
+.navbar-brand {
+    padding-left: 5px;
+}
+
+.navbar-custom {
+    background-color: #009ddc;
+}
+
+.d-flex {
+    padding-right: 10px;
+}
