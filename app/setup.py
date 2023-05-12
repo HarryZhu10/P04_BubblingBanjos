@@ -2,10 +2,14 @@ import sqlite3, csv, sqlalchemy, gdown #gdown for downloading big google drive f
 import pandas as pd
 
 from sqlalchemy import create_engine
-engine = create_engine('sqlite://', echo=False)
+# engine = create_engine('sqlite://', echo=False)
 DB_FILE = "data.db"
 
-db = None
+db = sqlite3.connect(DB_FILE, check_same_thread = False)
+c = db.cursor()
+
+# c.execute('CREATE TABLE IF NOT EXISTS collision_info (CRASH DATE TEXT, CRASH TIME TEXT, ZIP CODE INTEGER, LATITUDE REAL, LONGITUDE REAL, NUMBER OF PERSONS INJURED INTEGER, NUMBER OF PERSONS KILLED INTEGER)')
+# db.commit()
 
 curl = 'https://drive.google.com/file/d/1DXS_eqGG3AbR1IrdOcWiXc_qPTEbGFHf/view?usp=sharing'
 aurl = 'https://drive.google.com/file/d/1HtKO8nK2daRjJm1U50pyUZt_SF0cFmQj/view?usp=sharing'
@@ -16,7 +20,7 @@ gdown.download(curl)
 gdown.download(aurl)
 
 
-# Collision and arrest data is obtained separately because they're too big
+# Collision and arrest data is obtained separately with gdown because they're too big
 surl = 'https://drive.google.com/file/d/1EJRFulkdL0sKhH2py9YVXH6gfdvNN_6Q/view?usp=sharing'
 durl = 'https://drive.google.com/file/d/1sGjh289FyxkBNQ-wdruaxxN0k1WTp2xg/view?usp=sharing'
 surl = 'https://drive.google.com/uc?id=' + surl.split('/')[-2]
@@ -46,7 +50,9 @@ cdf = cdf[(cdf['CRASH DATE'] >= '01/01/2017')]
 sdf = sdf[(sdf['OCCUR_DATE'] >= '01/01/2017')]
 adf = adf[(adf['ARREST_DATE'] >= '01/01/2017')]
 
-cdf.to_sql('collision_info', con=engine, if_exists='fail')
-sdf.to_sql('shooting_info', con=engine, if_exists='fail')
-adf.to_sql('arrest_info', con=engine, if_exists='fail')
-ddf.to_sql('demographic_info', con=engine, if_exists='fail')
+cdf.to_sql('collision_info', db, if_exists='fail')
+sdf.to_sql('shooting_info', db, if_exists='fail')
+adf.to_sql('arrest_info', db, if_exists='fail')
+ddf.to_sql('demographic_info', db, if_exists='fail')
+
+db.commit()
