@@ -59,4 +59,9 @@ ddf.to_sql('demographic_info', db, if_exists='fail')
 # Host Zip_Code.shp file on google drive and download it here
 # sf = shapefile.Reader('ZIP_CODE_040114.shp')
 
+zipcodeurl = 'https://drive.google.com/file/d/17d8We1qNCsRIm7eH6P9qcBUsQ9iGNhmZ/view?usp=sharing'
+zipcodeurl = 'https://drive.google.com/uc?id=' + zipcodeurl.split('/')[-2]
+gdown.download(zipcodeurl)
+sf = shapefile.Reader('ZIP_CODE_040114.zip')
+
 db.commit()
