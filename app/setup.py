@@ -1,15 +1,16 @@
-import sqlite3, csv, sqlalchemy, gdown, shapefile #gdown for downloading big google drive files
+import sqlite3, csv, sqlalchemy, gdown, shapefile, fiona #gdown for downloading big google drive files
 import pandas as pd
 
+from collections import OrderedDict
 from sqlalchemy import create_engine
-# engine = create_engine('sqlite://', echo=False)
+engine = create_engine('sqlite://', echo=False)
 DB_FILE = "data.db"
 
 db = sqlite3.connect(DB_FILE, check_same_thread = False)
 c = db.cursor()
 
-# c.execute('CREATE TABLE IF NOT EXISTS collision_info (CRASH DATE TEXT, CRASH TIME TEXT, ZIP CODE INTEGER, LATITUDE REAL, LONGITUDE REAL, NUMBER OF PERSONS INJURED INTEGER, NUMBER OF PERSONS KILLED INTEGER)')
-# db.commit()
+c.execute('CREATE TABLE IF NOT EXISTS collision_info (CRASH DATE TEXT, CRASH TIME TEXT, ZIP CODE INTEGER, LATITUDE REAL, LONGITUDE REAL, NUMBER OF PERSONS INJURED INTEGER, NUMBER OF PERSONS KILLED INTEGER)')
+db.commit()
 
 curl = 'https://drive.google.com/file/d/1DXS_eqGG3AbR1IrdOcWiXc_qPTEbGFHf/view?usp=sharing'
 aurl = 'https://drive.google.com/file/d/1HtKO8nK2daRjJm1U50pyUZt_SF0cFmQj/view?usp=sharing'
@@ -32,8 +33,8 @@ sdf = pd.read_csv(surl, usecols=['OCCUR_DATE', 'Latitude', 'Longitude', 'PERP_AG
 
 adf = pd.read_csv('NYPD_ARRESTS_DATA__HISTORIC_.csv', usecols=['ARREST_DATE', 'OFNS_DESC', 'LAW_CODE', 'LAW_CAT_CD', 'Longitude', 'Latitude', 'ARREST_PRECINCT', 'AGE_GROUP', 'PERP_SEX', 'PERP_RACE'])
 
-# Missing 'Hispanic or Latinx Count', 'Hispanic or Latinx Percentage', 'Two Spirit (Native American/ First Nations) Count',
-# 'Two Spirit (Native American/ First Nations) Percentage', 'Native Hawaiian or Pacific Islander Count', 'Native Hawaiian or Pacific Islander Percentage'
+Missing 'Hispanic or Latinx Count', 'Hispanic or Latinx Percentage', 'Two Spirit (Native American/ First Nations) Count',
+'Two Spirit (Native American/ First Nations) Percentage', 'Native Hawaiian or Pacific Islander Count', 'Native Hawaiian or Pacific Islander Percentage'
 ddf = pd.read_csv(durl, usecols=['Zip Code', 'Female Count', 'Female Percentage', 'Male Count', 'Male Percentage', 'Gender Nonconforming Count', 'Gender Nonconforming Percentage'
                                  , 'American Indian or Alaskan Native Count', 'American Indian or Alaskan Native Percentage', 'Asian Count', 'Asian Percentage',
                                  'Black or African American Count', 'Black or African American Percentage', 'Multi-race Count', 'Multi-race Percentage', 'White or Caucasian Count', 'White or Caucasian Percentage', 'Middle Eastern and North African Count', 'Middle Eastern and North African Percentage'])
@@ -55,13 +56,25 @@ sdf.to_sql('shooting_info', db, if_exists='fail')
 adf.to_sql('arrest_info', db, if_exists='fail')
 ddf.to_sql('demographic_info', db, if_exists='fail')
 
-# Do a lot of shapefile stuff in order to convert the zipcodes into geographic coordinate data that can be made into polygons.
-# Host Zip_Code.shp file on google drive and download it here
-# sf = shapefile.Reader('ZIP_CODE_040114.shp')
+Do a lot of shapefile stuff in order to convert the zipcodes into geographic coordinate data that can be made into polygons.
+Host Zip_Code.shp file on google drive and download it here
+sf = shapefile.Reader('ZIP_CODE_040114.shp')
 
 zipcodeurl = 'https://drive.google.com/file/d/17d8We1qNCsRIm7eH6P9qcBUsQ9iGNhmZ/view?usp=sharing'
 zipcodeurl = 'https://drive.google.com/uc?id=' + zipcodeurl.split('/')[-2]
 gdown.download(zipcodeurl)
 sf = shapefile.Reader('ZIP_CODE_040114.zip')
+with fiona.open('zip://ZIP_CODE_040114.zip') as src:
+    asdict = OrderedDict()
+    asdict['type'] = 'FeatureCollection'
+    asdict['features'] = []
+    for feature in src:
+        feature_dict = OrderedDict()
+        feature_dict['type'] = 'Feature'
+        feature_dict['geometry'] = feature['geometry']
+        feature_dict['properties'] = feature['properties']
+        asdict['features'].append(feature_dict)
+        
+print(asdict)
 
 db.commit()
