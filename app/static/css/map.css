@@ -26,6 +26,11 @@
     background-color: #009ddc;
 }
 
+.slider {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 .d-flex {
     padding-right: 10px;
 }

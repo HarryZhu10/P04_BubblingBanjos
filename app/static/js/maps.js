@@ -76,3 +76,11 @@ function onMapClick(e) {
 }
 
 map.on('click', onMapClick);
+
+//function for slider years
+
+var slider1 = document.getElementById("customRange1");
+
+slider1.addEventListener('input', function() {
+    document.getElementById("customLabel1").innerHTML = slider1.value + 2000 //Lowest Year
+}, false);
