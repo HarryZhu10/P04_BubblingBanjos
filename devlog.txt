@@ -97,3 +97,5 @@ harryZ -- 2023-05-12 13:50
 * Fixed the name in map.html
 * Filled in the "How to" section for home.html
 --------------------------------------------------------------
+ivanY -- 2023-05-12 13:55
+* Created a expandable navbar for maps page where user can customize the data they want to view
