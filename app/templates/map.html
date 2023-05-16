@@ -46,19 +46,41 @@
                       <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                       </li>
+                      
+                      <!-- NEED TO FIGURE OUT HOW TO PREVENT DROPDOWN FROM COLLAPSING WHEN USER CLICKS SOMEWHERE ELSE -->
                       <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Dropdown link
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          NYC Motor Vehicle Collisions
                         </a>
                         <ul class="dropdown-menu">
-                          <li class="slider">
-                            <label for="customRange1" class="form-label id=customLabel1">Example range</label>
-                            <input type="range" class="form-range" min="0" max="5" id="customRange1">
-                        </li>
-                          <li><a class="dropdown-item" href="#">Another action</a></li>
-                          <li><a class="dropdown-item" href="#">Something else here</a></li>
+                          <div class="dropdown-content">
+                            <li class="slider">
+                              <label for="slider1" class="form-label" id="label1">Example range</label>
+                              <input type="range" class="form-range" min="0" max="15" id="slider1">
+                          </li>
+                            <li class="colorPicker">
+                              <label for="exampleColorInput" class="form-label">Data color</label>
+                              <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#563d7c" title="Choose your color">
+                            </li>
+                            <li class="radioCheckers">
+                              <label for="form-check" class="form-label">Data Visualization Options</label>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                  Markers
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                  Heat Map
+                                </label>
+                              </div>
+                            </li>
+                        </div>
                         </ul>
                       </li>
+
                     </ul>
                   </div>
                 </div>   

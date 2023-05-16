@@ -77,10 +77,14 @@ function onMapClick(e) {
 
 map.on('click', onMapClick);
 
-//function for slider years
 
-var slider1 = document.getElementById("customRange1");
+//function for dynamic slider values
+
+const slider1 = document.getElementById("slider1");
+const sliderLabel1 = document.getElementById("label1");
+sliderLabel1.textContent = Number(slider1.value) + 2000; //sets label to default slider value
 
 slider1.addEventListener('input', function() {
-    document.getElementById("customLabel1").innerHTML = slider1.value + 2000 //Lowest Year
-}, false);
+    console.log(slider1.value);
+    sliderLabel1.textContent = Number(slider1.value) + 2000; //added number is the lowest year
+});
