@@ -92,3 +92,17 @@ harryZ -- 2023-05-11 13:46
 ivanY -- 2023-05-11 23:29
 * Combined home page with map page 
 * Added nav bar to maps page
+--------------------------------------------------------------
+harryZ -- 2023-05-12 13:50
+* Fixed the name in map.html
+* Filled in the "How to" section for home.html
+--------------------------------------------------------------
+ivanY -- 2023-05-12 13:55
+* Created a expandable navbar for maps page where user can customize the data they want to view
+--------------------------------------------------------------
+ivanY -- 2023-05-15 23:40
+* Created the basic options for data visualization on map navbar 
+  * Dynamic slider year picker
+  * Color picker
+  * Radio button for markers or heat map
+* Started to figure out/trouble shoot dropdown automatically collapse when clicking on dropdown items or another part of page
