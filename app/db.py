@@ -15,5 +15,5 @@ def db_close():
     db.close()
 
 def getData(tablename):
-    data = c.
+    data = c.execute("SELECT * FROM " + tablename).fetchall()
     return data

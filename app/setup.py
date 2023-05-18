@@ -1,4 +1,4 @@
-import sqlite3, csv, gdown, fiona, pyproj #gdown for downloading big google drive files
+import sqlite3, gdown, fiona, pyproj, json #gdown for downloading big google drive files
 import pandas as pd
 
 from collections import OrderedDict
@@ -22,7 +22,7 @@ durl = 'https://drive.google.com/file/d/1sGjh289FyxkBNQ-wdruaxxN0k1WTp2xg/view?u
 surl = 'https://drive.google.com/uc?id=' + surl.split('/')[-2]
 durl = 'https://drive.google.com/uc?id=' + durl.split('/')[-2]
 
-cdf = pd.read_csv('Motor_Vehicle_Collisions_-_Crashes.csv', usecols=["CRASH DATE", "CRASH TIME", "ZIP CODE", "LATITUDE", "LONGITUDE", "NUMBER OF PERSONS INJURED", "NUMBER OF PERSONS KILLED"], low_memory = False)
+cdf = pd.read_csv('Motor_Vehicle_Collisions_-_Crashes.csv', usecols=["CRASH DATE", "CRASH TIME", "ZIP CODE", "LATITUDE", "LONGITUDE", "NUMBER OF PERSONS INJURED", "NUMBER OF PERSONS KILLED", "VEHICLE TYPE CODE 1"], low_memory = False)
 
 sdf = pd.read_csv(surl, usecols=['OCCUR_DATE', 'Latitude', 'Longitude', 'PERP_AGE_GROUP', 'PERP_SEX', 'PERP_RACE', 'VIC_AGE_GROUP', 'VIC_SEX', 'VIC_RACE'])
 
@@ -82,5 +82,5 @@ with fiona.open('zip://ZIP_CODE_040114.zip') as src:
 print(asdict)
 #asdict['features'][index]['geometry']['coordinates'] for the bounding coordinates for a zip code
 #asdict['features'][index]['geometry']['type'] to get type (should always be polygon)
-
+#json.dumps(asdict['features'][index]) to get
 db.commit()
