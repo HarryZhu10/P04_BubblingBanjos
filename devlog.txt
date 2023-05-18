@@ -106,3 +106,6 @@ ivanY -- 2023-05-15 23:40
   * Color picker
   * Radio button for markers or heat map
 * Started to figure out/trouble shoot dropdown automatically collapse when clicking on dropdown items or another part of page
+
+Summarizing Thursday's tour
+*Mr.Mykolyk suggested adding a dataset for electric bikes.
