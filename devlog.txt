@@ -106,6 +106,13 @@ ivanY -- 2023-05-15 23:40
   * Color picker
   * Radio button for markers or heat map
 * Started to figure out/trouble shoot dropdown automatically collapse when clicking on dropdown items or another part of page
-
+--------------------------------------------------------------
 Summarizing Thursday's tour
-*Mr.Mykolyk suggested adding a dataset for electric bikes.
+* Mr.Mykolyk suggested adding a dataset for electric bikes.
+* Another tool that was used to put a map on app by another group was Google Maps API
+* Google charts seems like a simple method of getting bar graphs and pie charts of data (gives you an image of graph based off data?)
+* Simple animations like a circle getting smaller and bigger is a visually appealing way to show that you're hovering an icon using JS 
+* Chart.js seems to be another tool to visulize data (Radar chart was demoed using it)
+* Quickchart.io is also another tool being used by another group to create data visuals (Group using it demoed a word cloud)
+* A group had a function search bar that looked for substrings based off search input
+* Using pure JS was also a way a group chose to make their graph with
