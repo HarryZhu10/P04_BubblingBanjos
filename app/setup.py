@@ -2,6 +2,7 @@ import sqlite3, gdown, fiona, pyproj, json #gdown for downloading big google dri
 import pandas as pd
 
 from collections import OrderedDict
+from ast import literal_eval
 DB_FILE = "data.db"
 
 db = sqlite3.connect(DB_FILE, check_same_thread = False)
@@ -57,6 +58,8 @@ zipcodeurl = 'https://drive.google.com/file/d/17d8We1qNCsRIm7eH6P9qcBUsQ9iGNhmZ/
 zipcodeurl = 'https://drive.google.com/uc?id=' + zipcodeurl.split('/')[-2]
 gdown.download(zipcodeurl)
 
+c.execute("CREATE TABLE IF NOT EXISTS geo_info (id INTEGER PRIMARY KEY AUTOINCREMENT, properties TEXT, geometry TEXT)")
+
 source_crs = pyproj.CRS.from_string('PROJCS["NAD_1983_StatePlane_New_York_Long_Island_FIPS_3104_Feet",GEOGCS["GCS_North_American_1983",DATUM["D_North_American_1983",SPHEROID["GRS_1980",6378137.0,298.257222101]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]],PROJECTION["Lambert_Conformal_Conic"],PARAMETER["False_Easting",984250.0],PARAMETER["False_Northing",0.0],PARAMETER["Central_Meridian",-74.0],PARAMETER["Standard_Parallel_1",40.66666666666666],PARAMETER["Standard_Parallel_2",41.03333333333333],PARAMETER["Latitude_Of_Origin",40.16666666666666],UNIT["Foot_US",0.3048006096012192]]')
 target_crs = pyproj.CRS.from_string('EPSG:4326')
 
@@ -79,8 +82,14 @@ with fiona.open('zip://ZIP_CODE_040114.zip') as src:
         feature_dict['geometry']['coordinates'] = feature['geometry']['coordinates'][0]
         asdict['features'].append(feature_dict)
         
+for feature in asdict['features']:
+    properties = json.dumps(feature['properties'])
+    geometry = json.dumps(feature['geometry'])
+    c.execute("INSERT INTO geo_info (properties, geometry) VALUES (?, ?)", (properties, geometry))
+        
 print(asdict)
+
 #asdict['features'][index]['geometry']['coordinates'] for the bounding coordinates for a zip code
 #asdict['features'][index]['geometry']['type'] to get type (should always be polygon)
-#json.dumps(asdict['features'][index]) to get
+#json.dumps(asdict['features'][index]) to get as json
 db.commit()
