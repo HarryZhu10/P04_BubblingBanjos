@@ -1,6 +1,9 @@
 import sqlite3, csv, sqlalchemy, gdown #gdown for downloading big google drive files
 import pandas as pd
 
+from collections import OrderedDict
+from ast import literal_eval
+
 DB_FILE = "data.db"
 
 db = sqlite3.connect(DB_FILE)
@@ -16,6 +19,7 @@ def db_close():
 
 def getData(tablename):
     data = c.execute("SELECT * FROM " + tablename).fetchall()
+    db_close()
     return data
 
 def geodata_to_dict():
@@ -29,4 +33,5 @@ def geodata_to_dict():
         feature_dict['properties'] = literal_eval(row[0])
         feature_dict['geometry'] = literal_eval(row[1])
         geodict['features'].append(feature_dict)
+    db_close()
     return geodict

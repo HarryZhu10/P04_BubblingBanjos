@@ -2,6 +2,8 @@ from flask import Flask, render_template, request
 import os
 import json
 
+from db import geodata_to_dict, getData
+
 app = Flask(__name__)
 
 app.secret_key = os.urandom(12)
@@ -88,6 +90,8 @@ def map():
         [40.75577935550959, -74.00050699186157],
         [40.75558430520601, -73.97115289640259],
     ]
+    
+    zipareas = geodata_to_dict()
 
 
 
@@ -96,12 +100,14 @@ def map():
     # print (type(statesData))
     statesData_json = json.dumps(statesData)
     points_json = json.dumps(points)
+    zipdata_json = json.dumps(zipareas)
 
     # print(type(statesData_json))
     # print(statesData_json)
     
     return render_template('map.html', data=statesData_json,point_data=points_json)
     # return render_template('map.html')
+#     return render_templace('map.html', data=zipdata_json)
 
 
 if __name__ == "__main__": #false if this file imported as module
