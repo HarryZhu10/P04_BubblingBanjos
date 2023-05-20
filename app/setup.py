@@ -3,7 +3,6 @@ import pandas as pd
 
 from collections import OrderedDict
 from ast import literal_eval
-from db import db_close
 DB_FILE = "data.db"
 
 db = sqlite3.connect(DB_FILE, check_same_thread = False)
@@ -93,4 +92,4 @@ print(asdict)
 #asdict['features'][index]['geometry']['coordinates'] for the bounding coordinates for a zip code
 #asdict['features'][index]['geometry']['type'] to get type (should always be polygon)
 #json.dumps(asdict['features'][index]) to get as json
-db_close()
+db.commit()

@@ -1,12 +1,13 @@
 from flask import Flask, render_template, request
 import os
-import json
+import json, sqlite3
 
-from db import geodata_to_dict, getData
+from db import *
 
 app = Flask(__name__)
 
 app.secret_key = os.urandom(12)
+
 
 @app.route("/")
 def index():
@@ -107,7 +108,7 @@ def map():
     
     return render_template('map.html', data=statesData_json,point_data=points_json)
     # return render_template('map.html')
-#     return render_templace('map.html', data=zipdata_json)
+#     return render_template('map.html', data=zipdata_json, point_data=points_json)
 
 
 if __name__ == "__main__": #false if this file imported as module
