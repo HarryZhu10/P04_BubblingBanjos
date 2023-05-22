@@ -76,10 +76,10 @@ with fiona.open('zip://ZIP_CODE_040114.zip') as src:
         for k, v in feature.properties.items():
             feature_dict['properties'][k] = v
         # Change coordinates system to lon lat
-        feature['geometry']['coordinates'][0] = [transformer.transform(x, y) for x, y in feature['geometry']['coordinates'][0]]
+        feature['geometry']['coordinates'][0] = [transformer.transform(x, y)[::-1] for x, y in feature['geometry']['coordinates'][0]]
         feature_dict['geometry'] = {}
         feature_dict['geometry']['type'] = feature['geometry']['type']
-        feature_dict['geometry']['coordinates'] = feature['geometry']['coordinates'][0]
+        feature_dict['geometry']['coordinates'] = [feature['geometry']['coordinates'][0]]
         asdict['features'].append(feature_dict)
         
 for feature in asdict['features']:

@@ -24,14 +24,15 @@ def getData(tablename):
 
 def geodata_to_dict():
     c = db_connect()
-    rows = c.execute("SELECT properties, geometry FROM geo_info").fetchall()
+    rows = c.execute("SELECT id, properties, geometry FROM geo_info").fetchall()
     geodict = OrderedDict()
     geodict['type'] = 'FeatureCollection'
     geodict['features'] = []
     for row in rows:
         feature_dict = OrderedDict()
-        feature_dict['type'] = 'feature'
-        feature_dict['properties'] = literal_eval(row[0])
-        feature_dict['geometry'] = literal_eval(row[1])
+        feature_dict['type'] = 'Feature'
+        feature_dict['id'] = str(row[0])
+        feature_dict['properties'] = literal_eval(row[1])
+        feature_dict['geometry'] = literal_eval(row[2])
         geodict['features'].append(feature_dict)
     return geodict
