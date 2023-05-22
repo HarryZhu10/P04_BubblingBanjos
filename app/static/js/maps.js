@@ -38,8 +38,27 @@ for (let i = 0; i < json_points.length; i++) {
   } 
 
 // end of mass markers code
+// var colorSlider = document.getElementById("exampleColorInput1");
+// var hexColor = colorSlider.value.substring(1);
 
-var marker = L.marker([40.70850, -74.00603]).addTo(map);
+// colorSlider.addEventListener('input', function() {
+//     console.log(hexColor);
+//     hexColor = colorSlider.value.substring(1);
+//     marker.setIcon(L.divIcon({iconUrl: "https://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + hexColor + "&chf=a,s,ee00FFFF"}));
+// }
+// );
+
+var markerIcon = L.icon ({
+    iconUrl: "https://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + hexColor + "&chf=a,s,ee00FFFF"
+})
+
+//Another way to change marker color is to use google charts API
+var marker = L.marker([40.70850, -74.00603], {icon: markerIcon}).addTo(map);
+
+// var marker = L.marker([40.70850, -74.00603]).addTo(map);
+// marker.getElement().style.filter = "hue-rotate(240deg)"; 
+//<- can change the color of the marker by altering attribute of style.filter
+// examples of style.filter attributes: none | blur() | brightness() | contrast() | drop-shadow() | grayscale() | hue-rotate() | invert() | opacity() | saturate() | sepia()
 
 var circle = L.circle([40.72850, -74.00603], {
     color: 'red',
