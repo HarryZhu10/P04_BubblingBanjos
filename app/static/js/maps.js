@@ -29,13 +29,61 @@ var points_data = document.getElementById("points");
 json_points = JSON.parse(points_data.innerHTML);
 console.log(json_points[5])
 
+//marker colors
+var normal = "";
+var orange = "invert(62%) sepia(22%) saturate(2096%) hue-rotate(1deg) brightness(104%) contrast(104%)";
+var red = "invert(94%) sepia(56%) saturate(2798%) hue-rotate(353deg) brightness(102%) contrast(104%)";
+var yellow = "invert(12%) sepia(83%) saturate(6686%) hue-rotate(1deg) brightness(111%) contrast(117%)";
+var purple = "invert(7%) sepia(100%) saturate(7307%) hue-rotate(247deg) brightness(113%) contrast(145%)";
+var alien = "invert(32%) sepia(35%) saturate(504%) hue-rotate(78deg) brightness(91%) contrast(93%)"
+
+const colorList = [normal, orange, red, yellow, purple, alien];
+
+
+var testGroup =  L.layerGroup().addTo(map); //create a layer allows us to put markers into different groups for easier customization
+
 for (let i = 0; i < json_points.length; i++) {
     // console.log(json_points[i])
-    var mark = L.marker(json_points[i]).addTo(map);
+    var mark = L.marker(json_points[i]).addTo(testGroup);
+    mark.getElement().style.filter = normal;
     // console.log(mark.getLatLng())
     var popup_string = "<b>Hello world!</b><br>I am a popup.<br>My coordinate is " + mark.getLatLng()["lat"] + ", " + mark.getLatLng()["lng"];
     mark.bindPopup(popup_string).openPopup();
   } 
+
+var colorButton = document.getElementById('colorChanger');
+colorButton.addEventListener('click', function() {
+    console.log("button clicked!");
+    var randomColor = Math.floor(Math.random()*5);
+    testGroup.eachLayer(function (marker) { // .eachLayer goes through every object that was added to it. In this case the markers
+        marker.getElement().style.filter = colorList[randomColor]; //altering the color of the markers
+    });
+});
+
+var selectDropdown = document.getElementById('colorSelector1');
+selectDropdown.addEventListener('input', function() {
+    testGroup.eachLayer(function(marker) {
+        marker.getElement().style.filter = colorList[selectDropdown.value];
+    });
+})
+
+var displayBtn = document.getElementById('collisionDisplay1');
+displayBtn.addEventListener('input', () => {
+    testGroup.eachLayer(function(marker) {
+        marker.getElement().style.visibility = 'visible';
+        marker._shadow.style.visibility = 'visible';
+    });
+});
+
+var hideBtn = document.getElementById('collisionDisplay2');
+hideBtn.addEventListener('input', () => {
+    testGroup.eachLayer(function(marker) {
+        marker.getElement().style.visibility = 'hidden';
+        marker._shadow.style.visibility = 'hidden';
+    });
+});
+
+
 
 // end of mass markers code
 
