@@ -2,6 +2,27 @@
 
 var map = L.map('map').setView([40.70850, -74.00603], 13); //40.70850/-74.00603
 
+function getColor(d) {
+    return d > 1000 ? '#800026' :
+    d > 500  ? '#BD0026' :
+    d > 200  ? '#E31A1C' :
+    d > 100  ? '#FC4E2A' :
+    d > 50   ? '#FD8D3C' :
+    d > 20   ? '#FEB24C' :
+    d > 10   ? '#FED976' :
+               '#FFEDA0';
+}
+
+function style(feature) {
+    return {
+        fillcolor: getColor(feature.properties.density), //<-- We replace .properties.density with what ever data we will be looking at such as 
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.7
+    };
+} //this function will set the color basedn
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -18,7 +39,9 @@ console.log(data.innerHTML);
 console.log(statesData);
 console.log('hello!');
 
-L.geoJson(statesData).addTo(map);
+// L.geoJson(statesData).addTo(map);
+
+L.geoJson(statesData, {style: style}).addTo(map);
 
 // end of the states polylgon data code
 
