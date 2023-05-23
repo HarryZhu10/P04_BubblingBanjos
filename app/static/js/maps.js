@@ -74,38 +74,67 @@ for (let i = 0; i < json_points.length; i++) {
     mark.bindPopup(popup_string).openPopup();
   } 
 
-var colorButton = document.getElementById('colorChanger');
-colorButton.addEventListener('click', function() {
-    console.log("button clicked!");
-    var randomColor = Math.floor(Math.random()*5);
-    testGroup.eachLayer(function (marker) { // .eachLayer goes through every object that was added to it. In this case the markers
-        marker.getElement().style.filter = colorList[randomColor]; //altering the color of the markers
-    });
-});
 
-var selectDropdown = document.getElementById('colorSelector1');
+
+/* ================================================================================ NAV BAR SCRIPT ================================================================================ */
+
+ 
+//script for changing the color of markers
+
+var selectDropdownCollision = document.getElementById('colorSelector1');
 selectDropdown.addEventListener('input', function() {
     testGroup.eachLayer(function(marker) {
         marker.getElement().style.filter = colorList[selectDropdown.value];
     });
-})
+});
 
-var displayBtn = document.getElementById('collisionDisplay1');
-displayBtn.addEventListener('input', () => {
+var selectDropdownShootings = document.getElementById('colorselector2');
+selectDropdown.addEventListener('input', function() {
+    //content
+});
+
+var selectDropdownArrests = document.getElementById('colorSelector3');
+selectDropdown.addEventListener('input', function() {
+    //content
+});
+
+//script for displaying/hiding markers
+
+var displayBtnCollision = document.getElementById('collisionDisplay1');
+displayBtnCollision.addEventListener('input', () => {
     testGroup.eachLayer(function(marker) {
         marker.getElement().style.visibility = 'visible';
         marker._shadow.style.visibility = 'visible';
     });
 });
 
-var hideBtn = document.getElementById('collisionDisplay2');
-hideBtn.addEventListener('input', () => {
+var hideBtnCollison = document.getElementById('collisionDisplay2');
+hideBtnCollison.addEventListener('input', () => {
     testGroup.eachLayer(function(marker) {
         marker.getElement().style.visibility = 'hidden';
         marker._shadow.style.visibility = 'hidden';
     });
 });
 
+var displayBtnShootings = document.getElementById('shootingsDisplay1');
+displayBtnShootings.addEventListener('input', () => {
+    //content
+});
+
+var hideBtnShootings = document.getElementById('shootingsDisplay2');
+hideBtnShootings.addEventListener('input', () => {
+    //content
+});
+
+var displayBtnArrests = document.getElementById('arestsDisplay1');
+displayBtnArrests.addEventListener('input', () => {
+    //content
+});
+
+var hideBtnArrests = document.getElementById('arrestDisplay2');
+hideBtnArrests.addEventListener('input', () => {
+    //content
+});
 
 
 // end of mass markers code
