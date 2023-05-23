@@ -1,7 +1,7 @@
 # P04: Map by BubblingBanjos
 
 # Roster:
-Harry : Middleware (Python and Flask)  
+(PM) Harry : Middleware (Python and Flask)  
 Andrew : Front End (Map API)  
 Ivan : Middleware (Python and Flask)  
 Shinji : Database / API (read data into sqlite)  
@@ -46,18 +46,22 @@ cd P04_BubblingBanjos/
 ```
 pip install -r requirements.txt
 ```
-`4) Run the program`
+`4) Run the setup code (you can delete the downloaded csv and zip files after the database is made)
+
+python3 app/setup.py
+
+5) Run the program`
 
 ``` 
 python3 app/__init__.py
 ```
 
-`5) Click on the following link:`
+`6) Click on the following link:`
 ```
 http://127.0.0.1:5000
 ```
 
-`6) Have fun!`
+`7) Have fun!`
 
 
 

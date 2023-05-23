@@ -51,6 +51,12 @@ var points_data = document.getElementById("points");
 // console.log(points_data);
 json_points = JSON.parse(points_data.innerHTML);
 console.log(json_points[5])
+var col_points = document.getElementById("collision_points");
+json_col_points = JSON.parse(col_points.innerHTML);
+var sho_points = document.getElementById("shooting_points");
+json_sho_points = JSON.parse(sho_points.innerHTML);
+var arr_points = document.getElementById("arrest_points");
+json_arr_points = JSON.parse(arr_points.innerHTML);
 
 //marker colors
 var normal = "";

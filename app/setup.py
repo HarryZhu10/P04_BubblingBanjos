@@ -1,7 +1,8 @@
-import sqlite3, csv, gdown, fiona, pyproj #gdown for downloading big google drive files
+import sqlite3, gdown, fiona, pyproj, json #gdown for downloading big google drive files
 import pandas as pd
 
 from collections import OrderedDict
+from ast import literal_eval
 DB_FILE = "data.db"
 
 db = sqlite3.connect(DB_FILE, check_same_thread = False)
@@ -22,17 +23,21 @@ durl = 'https://drive.google.com/file/d/1sGjh289FyxkBNQ-wdruaxxN0k1WTp2xg/view?u
 surl = 'https://drive.google.com/uc?id=' + surl.split('/')[-2]
 durl = 'https://drive.google.com/uc?id=' + durl.split('/')[-2]
 
-cdf = pd.read_csv('Motor_Vehicle_Collisions_-_Crashes.csv', usecols=["CRASH DATE", "CRASH TIME", "ZIP CODE", "LATITUDE", "LONGITUDE", "NUMBER OF PERSONS INJURED", "NUMBER OF PERSONS KILLED"], low_memory = False)
+ccols_to_use = ["LATITUDE", "LONGITUDE", "CRASH DATE", "CRASH TIME", "ZIP CODE", "NUMBER OF PERSONS INJURED", "NUMBER OF PERSONS KILLED", "VEHICLE TYPE CODE 1"]
+cdf = pd.read_csv('Motor_Vehicle_Collisions_-_Crashes.csv', usecols=ccols_to_use, low_memory = False)[ccols_to_use]
 
-sdf = pd.read_csv(surl, usecols=['OCCUR_DATE', 'Latitude', 'Longitude', 'PERP_AGE_GROUP', 'PERP_SEX', 'PERP_RACE', 'VIC_AGE_GROUP', 'VIC_SEX', 'VIC_RACE'])
+scols_to_use = ['Latitude', 'Longitude', 'OCCUR_DATE', 'PERP_AGE_GROUP', 'PERP_SEX', 'PERP_RACE', 'VIC_AGE_GROUP', 'VIC_SEX', 'VIC_RACE']
+sdf = pd.read_csv(surl, usecols=scols_to_use)[scols_to_use]
 
-adf = pd.read_csv('NYPD_ARRESTS_DATA__HISTORIC_.csv', usecols=['ARREST_DATE', 'OFNS_DESC', 'LAW_CODE', 'LAW_CAT_CD', 'Longitude', 'Latitude', 'ARREST_PRECINCT', 'AGE_GROUP', 'PERP_SEX', 'PERP_RACE'])
+acols_to_use = ['Longitude', 'Latitude', 'ARREST_DATE', 'OFNS_DESC', 'LAW_CODE', 'LAW_CAT_CD', 'ARREST_PRECINCT', 'AGE_GROUP', 'PERP_SEX', 'PERP_RACE']
+adf = pd.read_csv('NYPD_Arrests_Data__Historic_.csv', usecols=acols_to_use)[acols_to_use]
 
 # Missing 'Hispanic or Latinx Count', 'Hispanic or Latinx Percentage', 'Two Spirit (Native American/ First Nations) Count',
 # 'Two Spirit (Native American/ First Nations) Percentage', 'Native Hawaiian or Pacific Islander Count', 'Native Hawaiian or Pacific Islander Percentage'
-ddf = pd.read_csv(durl, usecols=['Zip Code', 'Female Count', 'Female Percentage', 'Male Count', 'Male Percentage', 'Gender Nonconforming Count', 'Gender Nonconforming Percentage'
+dcols_to_use = ['Zip Code', 'Female Count', 'Female Percentage', 'Male Count', 'Male Percentage', 'Gender Nonconforming Count', 'Gender Nonconforming Percentage'
                                  , 'American Indian or Alaskan Native Count', 'American Indian or Alaskan Native Percentage', 'Asian Count', 'Asian Percentage',
-                                 'Black or African American Count', 'Black or African American Percentage', 'Multi-race Count', 'Multi-race Percentage', 'White or Caucasian Count', 'White or Caucasian Percentage', 'Middle Eastern and North African Count', 'Middle Eastern and North African Percentage'])
+                                 'Black or African American Count', 'Black or African American Percentage', 'Multi-race Count', 'Multi-race Percentage', 'White or Caucasian Count', 'White or Caucasian Percentage', 'Middle Eastern and North African Count', 'Middle Eastern and North African Percentage']
+ddf = pd.read_csv(durl, usecols=dcols_to_use)[dcols_to_use]
 
 cdf = cdf.dropna()
 sdf = sdf.dropna()
@@ -57,6 +62,8 @@ zipcodeurl = 'https://drive.google.com/file/d/17d8We1qNCsRIm7eH6P9qcBUsQ9iGNhmZ/
 zipcodeurl = 'https://drive.google.com/uc?id=' + zipcodeurl.split('/')[-2]
 gdown.download(zipcodeurl)
 
+c.execute("CREATE TABLE IF NOT EXISTS geo_info (id INTEGER PRIMARY KEY AUTOINCREMENT, properties TEXT, geometry TEXT)")
+
 source_crs = pyproj.CRS.from_string('PROJCS["NAD_1983_StatePlane_New_York_Long_Island_FIPS_3104_Feet",GEOGCS["GCS_North_American_1983",DATUM["D_North_American_1983",SPHEROID["GRS_1980",6378137.0,298.257222101]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]],PROJECTION["Lambert_Conformal_Conic"],PARAMETER["False_Easting",984250.0],PARAMETER["False_Northing",0.0],PARAMETER["Central_Meridian",-74.0],PARAMETER["Standard_Parallel_1",40.66666666666666],PARAMETER["Standard_Parallel_2",41.03333333333333],PARAMETER["Latitude_Of_Origin",40.16666666666666],UNIT["Foot_US",0.3048006096012192]]')
 target_crs = pyproj.CRS.from_string('EPSG:4326')
 
@@ -69,15 +76,24 @@ with fiona.open('zip://ZIP_CODE_040114.zip') as src:
     for feature in src:
         feature_dict = OrderedDict()
         feature_dict['type'] = 'Feature'
+        feature_dict['properties'] = {}
+        for k, v in feature.properties.items():
+            feature_dict['properties'][k] = v
         # Change coordinates system to lon lat
-        feature['geometry']['coordinates'][0] = [transformer.transform(x, y) for x, y in feature['geometry']['coordinates'][0]]
-        feature_dict['geometry'] = feature['geometry']
-        testgeo = feature['geometry']
-#         print(testgeo['type'])
-#         print(testgeo['coordinates'])
-        feature_dict['properties'] = feature['properties']
+        feature['geometry']['coordinates'][0] = [transformer.transform(x, y)[::-1] for x, y in feature['geometry']['coordinates'][0]]
+        feature_dict['geometry'] = {}
+        feature_dict['geometry']['type'] = feature['geometry']['type']
+        feature_dict['geometry']['coordinates'] = [feature['geometry']['coordinates'][0]]
         asdict['features'].append(feature_dict)
+        
+for feature in asdict['features']:
+    properties = json.dumps(feature['properties'])
+    geometry = json.dumps(feature['geometry'])
+    c.execute("INSERT INTO geo_info (properties, geometry) VALUES (?, ?)", (properties, geometry))
         
 print(asdict)
 
+#asdict['features'][index]['geometry']['coordinates'] for the bounding coordinates for a zip code
+#asdict['features'][index]['geometry']['type'] to get type (should always be polygon)
+#json.dumps(asdict['features'][index]) to get as json
 db.commit()

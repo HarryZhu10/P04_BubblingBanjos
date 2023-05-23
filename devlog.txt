@@ -93,6 +93,10 @@ ivanY -- 2023-05-11 23:29
 * Combined home page with map page 
 * Added nav bar to maps page
 --------------------------------------------------------------
+shinjiK -- 2023-05-11 20:57
+* Got dataframe stuff pretty much done
+* Moved dataframe to sql tables
+--------------------------------------------------------------
 harryZ -- 2023-05-12 13:50
 * Fixed the name in map.html
 * Filled in the "How to" section for home.html
@@ -100,9 +104,36 @@ harryZ -- 2023-05-12 13:50
 ivanY -- 2023-05-12 13:55
 * Created a expandable navbar for maps page where user can customize the data they want to view
 --------------------------------------------------------------
+shinjiK -- 2023-05-12 14:00
+* Starting working on shapefile for zip codes and opening them
+--------------------------------------------------------------
 ivanY -- 2023-05-15 23:40
 * Created the basic options for data visualization on map navbar 
   * Dynamic slider year picker
   * Color picker
   * Radio button for markers or heat map
 * Started to figure out/trouble shoot dropdown automatically collapse when clicking on dropdown items or another part of page
+--------------------------------------------------------------
+shinjiK -- 2023-05-15 21:00
+* More work on shapefile stuff and turning the shapefile into a dict that can be turned into geoJSON to be displayed on the map
+--------------------------------------------------------------
+shinjiK -- 2023-05-16 14:03
+* More work on .shp to dict
+* Got a coordinate system converted to convert the shapefile coordinates to lon, lat coordinates.
+--------------------------------------------------------------
+shinjiK -- 2023-05-18 14:00
+* Testing and looking at ways to turn data into geoJSON correctly
+--------------------------------------------------------------
+shinjiK -- 2023-05-19 20:48
+* Moved geodata to sql table as well
+* Added method for getting geodata in sql back into dict form for geoJSON
+--------------------------------------------------------------
+Summarizing Thursday's tour
+* Mr.Mykolyk suggested adding a dataset for electric bikes.
+* Another tool that was used to put a map on app by another group was Google Maps API
+* Google charts seems like a simple method of getting bar graphs and pie charts of data (gives you an image of graph based off data?)
+* Simple animations like a circle getting smaller and bigger is a visually appealing way to show that you're hovering an icon using JS 
+* Chart.js seems to be another tool to visulize data (Radar chart was demoed using it)
+* Quickchart.io is also another tool being used by another group to create data visuals (Group using it demoed a word cloud)
+* A group had a function search bar that looked for substrings based off search input
+* Using pure JS was also a way a group chose to make their graph with
