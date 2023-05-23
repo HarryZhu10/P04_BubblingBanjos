@@ -72,7 +72,7 @@ const colorList = [normal, orange, red, yellow, purple, alien];
 var testGroup =  L.layerGroup().addTo(map); //create a layer allows us to put markers into different groups for easier customization
 
 for (let i = 0; i < json_points.length; i++) {
-    // console.log(json_points[i])
+    console.log(json_points[i])
     var mark = L.marker(json_points[i]).addTo(testGroup);
     mark.getElement().style.filter = normal;
     // console.log(mark.getLatLng())
@@ -81,6 +81,13 @@ for (let i = 0; i < json_points.length; i++) {
   } 
 
 
+/* ================================================================================ PLOTTING POINTS ON MAP ================================================================================ */
+// var collisionGroup = L.layerGroup().addTo(map);
+// for (let i = 0; i < 10; i++) {
+//     var location = {json_col_points[i]., json_col_point[i][2]};
+//     var mark = L.marker(location).addTo(collisionGroup);
+//     mark.getElement().style.filter = normal;
+// }
 
 /* ================================================================================ NAV BAR SCRIPT ================================================================================ */
 
