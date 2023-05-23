@@ -24,6 +24,8 @@ L.geoJson(statesData).addTo(map);
 
 // to add a bunch of markers to the map
 
+var demo_data = document.getElementById("demo_data");
+
 var points_data = document.getElementById("points");
 // console.log(points_data);
 json_points = JSON.parse(points_data.innerHTML);

@@ -67,7 +67,7 @@ def map():
 #     return render_template('map.html', data=statesData_json,point_data=points_json)
     # return render_template('map.html')
 #     return render_template('map.html', data=zipdata_json, point_data=points_json)
-    return render_template('map.html', data=zipdata_json, point_data=points_json, col_data=collision_points_json, sho_data=shooting_points_json, arr_data=arrest_points_json)
+    return render_template('map.html', data=zipdata_json, point_data=points_json, col_data=collision_points_json, sho_data=shooting_points_json, arr_data=arrest_points_json, demo_data = demo_info)
 #     return render_template('map.html', data=otherData_json)
 
 
