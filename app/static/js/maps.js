@@ -93,7 +93,7 @@ slider1.addEventListener('input', function() {
     sliderLabel1.textContent = Number(slider1.value) + 2000; //added number is the lowest year
 });
 
-// NYC Hate Crimes
+// NYC Shootings
 const slider2 = document.getElementById("slider2");
 const sliderLabel2 = document.getElementById("label2");
 sliderLabel2.textContent = Number(slider2.value) + 2000; //sets label to default slider value
@@ -103,7 +103,7 @@ slider2.addEventListener('input', function() {
     sliderLabel2.textContent = Number(slider2.value) + 2000; //added number is the lowest year
 });
 
-// NYC shooting incidents
+// NYC Arrests
 const slider3 = document.getElementById("slider3");
 const sliderLabel3 = document.getElementById("label3");
 sliderLabel3.textContent = Number(slider3.value) + 2000; //sets label to default slider value
@@ -111,14 +111,4 @@ sliderLabel3.textContent = Number(slider3.value) + 2000; //sets label to default
 slider3.addEventListener('input', function() {
     console.log(slider3.value);
     sliderLabel3.textContent = Number(slider3.value) + 2000; //added number is the lowest year
-});
-
-// NYC Arrest Data
-const slider4 = document.getElementById("slider4");
-const sliderLabel4 = document.getElementById("label4");
-sliderLabel4.textContent = Number(slider4.value) + 2000; //sets label to default slider value
-
-slider4.addEventListener('input', function() {
-    console.log(slider4.value);
-    sliderLabel4.textContent = Number(slider4.value) + 2000; //added number is the lowest year
 });
