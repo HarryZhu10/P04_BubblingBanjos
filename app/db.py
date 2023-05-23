@@ -6,11 +6,12 @@ from ast import literal_eval
 
 DB_FILE = "data.db"
 
-db = sqlite3.connect(DB_FILE, check_same_thread = False)
-c = db.cursor()
+# db = sqlite3.connect(DB_FILE, check_same_thread = False)
+# c = db.cursor()
 
 
 def db_connect():
+    db = sqlite3.connect(DB_FILE, check_same_thread = False)
     return db.cursor()
 
 def db_close():
