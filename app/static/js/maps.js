@@ -1,6 +1,4 @@
-
-
-var map = L.map('map').setView([40.70850, -74.00603], 13); //40.70850/-74.00603
+var map = L.map('map').setView([40.70850, -74.00603], 12); //40.70850/-74.00603
 
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -8,30 +6,61 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-// add the states polygon data to the map
+// add the nyc zip codes polygon data to the map
 var data = document.getElementById("data");
 
 json_data = JSON.parse(data.innerHTML);
-var statesData = json_data;
 
-console.log(data.innerHTML);
-console.log(statesData);
-console.log('hello!');
 
-L.geoJson(statesData).addTo(map);
+// heat map
 
-// L.geoJson(statesData, {style: style}).addTo(map);
+function getColor(people) {
+    return people > 150 ? '#800026' :
+           people > 125  ? '#BD0026' :
+           people > 100  ? '#E31A1C' :
+           people > 75  ? '#FC4E2A' :
+           people > 50   ? '#FD8D3C' :
+           people > 25   ? '#FEB24C' :
+           people > 15   ? '#FED976' :
+                      '#FFEDA0';
+}
+
+function styleGeoJson(feature) {
+
+    if (feature.properties.AdultLiteracyBENLESOL == null) {
+        return {
+            fillColor: getColor(0),
+            weight: 2,
+            opacity: 1,
+            color: 'white',
+            dashArray: '3',
+            fillOpacity: 0.7
+        }
+    }
+
+    return {
+        fillColor: getColor(feature.properties.AdultLiteracyBENLESOL.total),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.7
+    };
+}
+
+
+L.geoJson(json_data, {style: styleGeoJson}).addTo(map);
 
 // end of the states polylgon data code
+
+
+
 
 // to add a bunch of markers to the map
 
 var demo_data = document.getElementById("demo_data");
 
-var points_data = document.getElementById("points");
-// console.log(points_data);
-json_points = JSON.parse(points_data.innerHTML);
-console.log(json_points[5])
+
 var col_points = document.getElementById("collision_points");
 json_col_points = JSON.parse(col_points.innerHTML);
 var sho_points = document.getElementById("shooting_points");
@@ -137,24 +166,6 @@ hideBtnShootings.addEventListener('input', () => {
         marker._shadow.style.visibility = 'hidden';
     });
 });
-
-
-
-
-function onMapClick(e) {
-    console.log("You clicked the map at " + e.latlng);
-}
-
-var popup = L.popup();
-
-function onMapClick(e) {
-    popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(map);
-}
-
-map.on('click', onMapClick);
 
 
 //Dynamically change markers with date input

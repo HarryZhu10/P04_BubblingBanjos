@@ -1,5 +1,4 @@
 import sqlite3 #gdown for downloading big google drive
-import pandas as pd
 
 from collections import OrderedDict
 from ast import literal_eval
