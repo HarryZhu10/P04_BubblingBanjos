@@ -46,16 +46,16 @@ cd P04_BubblingBanjos/
 ```
 pip install -r requirements.txt
 ```
-`4) Run the setup code (you can delete the downloaded csv and zip files after the database is made)`
+`4) Cd into app/ and run the setup code (you can delete the downloaded csv and zip files after the database is made)`
 
 ``` 
-python3 app/setup.py
+python3 setup.py
 ``` 
 
 `5) Run the program`
 
 ``` 
-python3 app/__init__.py
+python3 __init__.py
 ```
 
 `6) Click on the following link:`
