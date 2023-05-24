@@ -80,10 +80,11 @@ with fiona.open('zip://ZIP_CODE_040114.zip') as src:
         samezip = c.execute("SELECT `Program Type`, `Female Count`, `Male Count` FROM demographic_info WHERE `Zip Code` = " + feature_dict['properties']['ZIPCODE']).fetchall()
         i = 1
         for row in samezip:
-            feature_dict['properties'][row[0]] = {}
-            feature_dict['properties'][row[0]]['female'] = row[1]
-            feature_dict['properties'][row[0]]['male'] = row[2]
-            feature_dict['properties'][row[0]]['(female + male)'] = row[1] + row[2]
+            name = row[0].replace(" ", "")
+            feature_dict['properties'][name] = {}
+            feature_dict['properties'][name]['female'] = row[1]
+            feature_dict['properties'][name]['male'] = row[2]
+            feature_dict['properties'][name]['total'] = row[1] + row[2]
             i = i + 1
         # Change coordinates system to lon lat
         feature['geometry']['coordinates'][0] = [transformer.transform(x, y)[::-1] for x, y in feature['geometry']['coordinates'][0]]
