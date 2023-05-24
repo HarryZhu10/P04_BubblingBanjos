@@ -56,24 +56,33 @@ const colorList = [normal, orange, red, yellow, purple, alien];
 /* ================================================================================ PLOTTING POINTS ON MAP ================================================================================ */
 // console.log("COLLISION: " + json_col_points[1]);
 var collisionGroup = L.layerGroup().addTo(map);
-for (let i = 0; i < json_col_points.length; i++) {
-    if (json_col_points[i][3].substring(0,9) == "2022-05-1" ) {
-        var mark = L.marker([json_col_points[i][1], json_col_points[i][2]]).addTo(collisionGroup);
-        mark.getElement().style.filter = normal;
-        var popup_string = "<b>Additional Info</b><br> <b>Coordinates:</b> [" + json_col_points[i][1] + ", " + json_col_points[i][2] + "]<br> <b>Crash Time:</b> " + json_col_points[i][4] + "<br><b>Number of Persons Injured:</b> " + json_col_points[i][6] + "<br><b>Number of Persons Killed:</b> " + json_col_points[i][7] + "<br> <b>Vehicle Type:</b> " + json_col_points[i][8];
-        mark.bindPopup(popup_string);
+var plotCollision =  function(date) {
+    for (let i = 0; i < json_col_points.length; i++) {
+        if (json_col_points[i][3].substring(0,json_col_points[i][3].indexOf(' ')) == date ) {
+            var mark = L.marker([json_col_points[i][1], json_col_points[i][2]]).addTo(collisionGroup);
+            mark.getElement().style.filter = colorList[document.getElementById('colorSelector1').value];
+            var popup_string = "<b>Motor Collision's Info</b><br> <b>Coordinates:</b> [" + json_col_points[i][1] + ", " + json_col_points[i][2] + "]<br> <b>Date:</b> " + json_col_points[i][3].substring(0,json_col_points[i][3].indexOf(' ')) + "<br><b>Crash Time:</b> " + json_col_points[i][4] + "<br><b>Number of Persons Injured:</b> " + json_col_points[i][6] + "<br><b>Number of Persons Killed:</b> " + json_col_points[i][7] + "<br> <b>Vehicle Type:</b> " + json_col_points[i][8];
+            mark.bindPopup(popup_string);
+        }
     }
-}
+};
+plotCollision("2022-05-01");
+
+//months seem to have a day '0' which really are day '1' of the month. (Need to take account of this)
 
 var shootingsGroup = L.layerGroup().addTo(map);
-for (let i = 0; i < json_sho_points.length; i++) {
-    if (json_sho_points[i][3].substring(0,9) == "2022-05-1") {
-        var mark = L.marker([json_sho_points[i][1], json_sho_points[i][2]]).addTo(shootingsGroup);
-        mark.getElement().style.filter = normal;
-        var popup_string = "<b>Additional Info</b><br> <b>Coordinates:</b> [" + json_sho_points[i][1] + ", " + json_sho_points[i][2] + "]<br> <b>Perpetrator's Age Group:</b> " + json_sho_points[i][4] + "<br><b>Perpetrator's Sex:</b> " + json_sho_points[i][5] + "<br><b>Perpetrator's Race:</b>" + json_sho_points[i][6]+ "<br><b>Victim's Age Group:</b> " + json_sho_points[i][7] + "<br><b>Victim's Sex:</b> " + json_sho_points[i][8] + "<br><b>Victim's Race:</b> " + json_sho_points[i][9];
-        mark.bindPopup(popup_string);
+var plotShootings = function(date) {
+    for (let i = 0; i < json_sho_points.length; i++) {
+        if (json_sho_points[i][3].substring(0,json_sho_points[i][3].indexOf(' ')) == date) {
+            var mark = L.marker([json_sho_points[i][1], json_sho_points[i][2]]).addTo(shootingsGroup);
+            mark.getElement().style.filter = colorList[document.getElementById('colorSelector2').value];
+            var popup_string = "<b>Shooting Incident's Info</b><br> <b>Coordinates:</b> [" + json_sho_points[i][1] + ", " + json_sho_points[i][2] + "]<br> <b>Date:</b>" + json_sho_points[i][3].substring(0,json_sho_points[i][3].indexOf(' ')) + "<br><b>Perpetrator's Age Group:</b> " + json_sho_points[i][4] + "<br><b>Perpetrator's Sex:</b> " + json_sho_points[i][5] + "<br><b>Perpetrator's Race:</b>" + json_sho_points[i][6]+ "<br><b>Victim's Age Group:</b> " + json_sho_points[i][7] + "<br><b>Victim's Sex:</b> " + json_sho_points[i][8] + "<br><b>Victim's Race:</b> " + json_sho_points[i][9];
+            mark.bindPopup(popup_string);
+        }
     }
-}
+};
+plotShootings("2022-05-01")
+
 
 /* ================================================================================ NAV BAR SCRIPT ================================================================================ */
 
@@ -148,34 +157,18 @@ function onMapClick(e) {
 map.on('click', onMapClick);
 
 
-//function for dynamic slider values
+//Dynamically change markers with date input
 
-// NYC Motor Vehicle Collisions
-const slider1 = document.getElementById("slider1");
-const sliderLabel1 = document.getElementById("label1");
-sliderLabel1.textContent = Number(slider1.value) + 2000; //sets label to default slider value
-
-slider1.addEventListener('input', function() {
-    console.log(slider1.value);
-    sliderLabel1.textContent = Number(slider1.value) + 2000; //added number is the lowest year
+var collisionDateButton = document.getElementById('collisionDateButton');
+collisionDateButton.addEventListener('click', function(){
+    collisionGroup.clearLayers();
+    var inputDate = document.getElementById('collisionDateInput').value;
+    plotCollision(inputDate);
 });
 
-// NYC Shootings
-const slider2 = document.getElementById("slider2");
-const sliderLabel2 = document.getElementById("label2");
-sliderLabel2.textContent = Number(slider2.value) + 2000; //sets label to default slider value
-
-slider2.addEventListener('input', function() {
-    console.log(slider2.value);
-    sliderLabel2.textContent = Number(slider2.value) + 2000; //added number is the lowest year
-});
-
-// NYC Arrests
-const slider3 = document.getElementById("slider3");
-const sliderLabel3 = document.getElementById("label3");
-sliderLabel3.textContent = Number(slider3.value) + 2000; //sets label to default slider value
-
-slider3.addEventListener('input', function() {
-    console.log(slider3.value);
-    sliderLabel3.textContent = Number(slider3.value) + 2000; //added number is the lowest year
-});
+var shootingsDateButton = document.getElementById('shootingsDateButton');
+shootingsDateButton.addEventListener('click', function() {
+    shootingsGroup.clearLayers();
+    var inputDate = document.getElementById('shootingsDateInput').value;
+    plotShootings(inputDate);
+})
