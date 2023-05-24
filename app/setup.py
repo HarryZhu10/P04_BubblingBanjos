@@ -34,9 +34,7 @@ adf = pd.read_csv('NYPD_Arrests_Data__Historic_.csv', usecols=acols_to_use)[acol
 
 # Missing 'Hispanic or Latinx Count', 'Hispanic or Latinx Percentage', 'Two Spirit (Native American/ First Nations) Count',
 # 'Two Spirit (Native American/ First Nations) Percentage', 'Native Hawaiian or Pacific Islander Count', 'Native Hawaiian or Pacific Islander Percentage'
-dcols_to_use = ['Zip Code', 'Female Count', 'Female Percentage', 'Male Count', 'Male Percentage', 'Gender Nonconforming Count', 'Gender Nonconforming Percentage'
-                                 , 'American Indian or Alaskan Native Count', 'American Indian or Alaskan Native Percentage', 'Asian Count', 'Asian Percentage',
-                                 'Black or African American Count', 'Black or African American Percentage', 'Multi-race Count', 'Multi-race Percentage', 'White or Caucasian Count', 'White or Caucasian Percentage', 'Middle Eastern and North African Count', 'Middle Eastern and North African Percentage']
+dcols_to_use = ['Zip Code', 'Program Type', 'Female Count', 'Male Count']
 ddf = pd.read_csv(durl, usecols=dcols_to_use)[dcols_to_use]
 
 cdf = cdf.dropna()
@@ -79,6 +77,14 @@ with fiona.open('zip://ZIP_CODE_040114.zip') as src:
         feature_dict['properties'] = {}
         for k, v in feature.properties.items():
             feature_dict['properties'][k] = v
+        samezip = c.execute("SELECT `Program Type`, `Female Count`, `Male Count` FROM demographic_info WHERE `Zip Code` = " + feature_dict['properties']['ZIPCODE']).fetchall()
+        i = 1
+        for row in samezip:
+            feature_dict['properties'][row[0]] = {}
+            feature_dict['properties'][row[0]]['female'] = row[1]
+            feature_dict['properties'][row[0]]['male'] = row[2]
+            feature_dict['properties'][row[0]]['(female + male)'] = row[1] + row[2]
+            i = i + 1
         # Change coordinates system to lon lat
         feature['geometry']['coordinates'][0] = [transformer.transform(x, y)[::-1] for x, y in feature['geometry']['coordinates'][0]]
         feature_dict['geometry'] = {}
