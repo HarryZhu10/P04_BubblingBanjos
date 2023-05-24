@@ -81,6 +81,8 @@ with fiona.open('zip://ZIP_CODE_040114.zip') as src:
         i = 1
         for row in samezip:
             name = row[0].replace(" ", "")
+            name = name.replace("-","")
+            name = name.replace("/","")
             feature_dict['properties'][name] = {}
             feature_dict['properties'][name]['female'] = row[1]
             feature_dict['properties'][name]['male'] = row[2]
