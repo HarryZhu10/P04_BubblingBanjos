@@ -137,3 +137,12 @@ Summarizing Thursday's tour
 * Quickchart.io is also another tool being used by another group to create data visuals (Group using it demoed a word cloud)
 * A group had a function search bar that looked for substrings based off search input
 * Using pure JS was also a way a group chose to make their graph with
+--------------------------------------------------------------
+ivanY -- 2023-05-22
+* created dropdown options for other data sets we were using 
+* replaced color slider with a dropdown of preset colors 
+* got options for colors and hide/show markers working with hard coded markers 
+--------------------------------------------------------------
+ivanY -- 2023-05-23
+* connected database with map visualization through JS and leaflet library
+* implemented customization for markers on data from the database
